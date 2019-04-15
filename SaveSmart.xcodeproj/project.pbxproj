@@ -8,22 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		C7F82E62226244D2004DA01B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E61226244D2004DA01B /* AppDelegate.swift */; };
-		C7F82E64226244D2004DA01B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E63226244D2004DA01B /* FirstViewController.swift */; };
+		C7F82E64226244D2004DA01B /* BudgetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E63226244D2004DA01B /* BudgetListViewController.swift */; };
 		C7F82E66226244D2004DA01B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E65226244D2004DA01B /* SecondViewController.swift */; };
 		C7F82E69226244D2004DA01B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F82E67226244D2004DA01B /* Main.storyboard */; };
 		C7F82E6B226244D4004DA01B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F82E6A226244D4004DA01B /* Assets.xcassets */; };
 		C7F82E6E226244D4004DA01B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F82E6C226244D4004DA01B /* LaunchScreen.storyboard */; };
+		C7F82E7622624B4A004DA01B /* BudgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E7522624B4A004DA01B /* BudgetModel.swift */; };
+		C7F82E78226290E0004DA01B /* ExpenseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E77226290E0004DA01B /* ExpenseListViewController.swift */; };
+		C7F82E7A226292E5004DA01B /* NewBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E79226292E5004DA01B /* NewBudgetViewController.swift */; };
+		C7F82E7C226292F3004DA01B /* NewExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E7B226292F3004DA01B /* NewExpenseViewController.swift */; };
+		FE91053B1E92EE24B3E4F094 /* Pods_SaveSmart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90342A418AECCAE67EF9BBED /* Pods_SaveSmart.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26E89A61C8CB411877FE2C15 /* Pods-SaveSmart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveSmart.debug.xcconfig"; path = "Target Support Files/Pods-SaveSmart/Pods-SaveSmart.debug.xcconfig"; sourceTree = "<group>"; };
+		699508B026AEDC4155406ACF /* Pods-SaveSmart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveSmart.release.xcconfig"; path = "Target Support Files/Pods-SaveSmart/Pods-SaveSmart.release.xcconfig"; sourceTree = "<group>"; };
+		90342A418AECCAE67EF9BBED /* Pods_SaveSmart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaveSmart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F82E5E226244D2004DA01B /* SaveSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F82E61226244D2004DA01B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7F82E63226244D2004DA01B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		C7F82E63226244D2004DA01B /* BudgetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetListViewController.swift; sourceTree = "<group>"; };
 		C7F82E65226244D2004DA01B /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C7F82E68226244D2004DA01B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7F82E6A226244D4004DA01B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7F82E6D226244D4004DA01B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7F82E6F226244D4004DA01B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7F82E7522624B4A004DA01B /* BudgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModel.swift; sourceTree = "<group>"; };
+		C7F82E77226290E0004DA01B /* ExpenseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListViewController.swift; sourceTree = "<group>"; };
+		C7F82E79226292E5004DA01B /* NewBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetViewController.swift; sourceTree = "<group>"; };
+		C7F82E7B226292F3004DA01B /* NewExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE91053B1E92EE24B3E4F094 /* Pods_SaveSmart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +55,8 @@
 			children = (
 				C7F82E60226244D2004DA01B /* SaveSmart */,
 				C7F82E5F226244D2004DA01B /* Products */,
+				FC424961269074067C80187A /* Pods */,
+				EE7A59350C9E0F3212964D7C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +72,35 @@
 			isa = PBXGroup;
 			children = (
 				C7F82E61226244D2004DA01B /* AppDelegate.swift */,
-				C7F82E63226244D2004DA01B /* FirstViewController.swift */,
+				C7F82E63226244D2004DA01B /* BudgetListViewController.swift */,
+				C7F82E77226290E0004DA01B /* ExpenseListViewController.swift */,
 				C7F82E65226244D2004DA01B /* SecondViewController.swift */,
 				C7F82E67226244D2004DA01B /* Main.storyboard */,
+				C7F82E79226292E5004DA01B /* NewBudgetViewController.swift */,
+				C7F82E7B226292F3004DA01B /* NewExpenseViewController.swift */,
 				C7F82E6A226244D4004DA01B /* Assets.xcassets */,
 				C7F82E6C226244D4004DA01B /* LaunchScreen.storyboard */,
 				C7F82E6F226244D4004DA01B /* Info.plist */,
+				C7F82E7522624B4A004DA01B /* BudgetModel.swift */,
 			);
 			path = SaveSmart;
+			sourceTree = "<group>";
+		};
+		EE7A59350C9E0F3212964D7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				90342A418AECCAE67EF9BBED /* Pods_SaveSmart.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC424961269074067C80187A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26E89A61C8CB411877FE2C15 /* Pods-SaveSmart.debug.xcconfig */,
+				699508B026AEDC4155406ACF /* Pods-SaveSmart.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7F82E72226244D4004DA01B /* Build configuration list for PBXNativeTarget "SaveSmart" */;
 			buildPhases = (
+				19DB29974A2B2575A8986D38 /* [CP] Check Pods Manifest.lock */,
 				C7F82E5A226244D2004DA01B /* Sources */,
 				C7F82E5B226244D2004DA01B /* Frameworks */,
 				C7F82E5C226244D2004DA01B /* Resources */,
+				47CB1A2FBC5A1750EE4707CA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +171,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		19DB29974A2B2575A8986D38 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SaveSmart-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		47CB1A2FBC5A1750EE4707CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SaveSmart/Pods-SaveSmart-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SaveSmart/Pods-SaveSmart-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C7F82E5A226244D2004DA01B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7F82E7622624B4A004DA01B /* BudgetModel.swift in Sources */,
 				C7F82E66226244D2004DA01B /* SecondViewController.swift in Sources */,
+				C7F82E7C226292F3004DA01B /* NewExpenseViewController.swift in Sources */,
+				C7F82E7A226292E5004DA01B /* NewBudgetViewController.swift in Sources */,
+				C7F82E78226290E0004DA01B /* ExpenseListViewController.swift in Sources */,
 				C7F82E62226244D2004DA01B /* AppDelegate.swift in Sources */,
-				C7F82E64226244D2004DA01B /* FirstViewController.swift in Sources */,
+				C7F82E64226244D2004DA01B /* BudgetListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +375,7 @@
 		};
 		C7F82E73226244D4004DA01B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26E89A61C8CB411877FE2C15 /* Pods-SaveSmart.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +394,7 @@
 		};
 		C7F82E74226244D4004DA01B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 699508B026AEDC4155406ACF /* Pods-SaveSmart.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

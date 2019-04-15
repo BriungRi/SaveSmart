@@ -1,0 +1,6 @@
+framework module Pods_SaveSmart {
+  umbrella header "Pods-SaveSmart-umbrella.h"
+
+  export *
+  module * { export * }
+}
