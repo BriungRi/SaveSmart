@@ -7,71 +7,102 @@
 //
 
 import UIKit
-import Charts
 
-class SecondViewController: UIViewController {
-
-    @IBOutlet weak var pieChartView: PieChartView!
+class SecondViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
-    @IBOutlet weak var lineChartView: LineChartView!
+    var pageControl = UIPageControl()
     
+    // MARK: UIPageViewControllerDataSource
     
-    var expenseEntry = PieChartDataEntry(value: 0)
-    var budgetEntry = PieChartDataEntry(value: 0)
-
+    lazy var orderedViewControllers: [UIViewController] = {
+        return [self.newVc(viewController: "pieChart"),
+                self.newVc(viewController: "lineChart")]
+    }()
     
-    var numEntries = [PieChartDataEntry]()
-    var lineChartEntry = [ChartDataEntry]()
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    
-        print("View did appear")
-        updatePieChartData()
-        updateLineChartData()
-    }
-    
-    func updatePieChartData() {
-        var budgetTot = 0.0
-        var expenseTot = 0.0
-        for budgData in GlobalData.budgets {
-            budgetTot += budgData.budgetTotal
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.dataSource = self
+        self.delegate = self
+        
+        
+        
+        // This sets up the first view that will show up on our page control
+        if let firstViewController = orderedViewControllers.first {
+            setViewControllers([firstViewController],
+                               direction: .forward,
+                               animated: true,
+                               completion: nil)
         }
         
-        for expsData in GlobalData.expenses {
-            expenseTot += expsData.expenseAmount
-        }
-        pieChartView.chartDescription?.text = "Total Budget vs. Total Expense"
-        budgetEntry.label = "Budget"
-        expenseEntry.label = "Expense"
+        configurePageControl()
         
-        budgetEntry = PieChartDataEntry(value: budgetTot)
-        expenseEntry = PieChartDataEntry(value: expenseTot)
-        numEntries = [budgetEntry, expenseEntry]
-        let pieChartDataSet = PieChartDataSet(entries: numEntries, label: nil)
-        let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        
-        pieChartDataSet.colors = [NSUIColor.green, NSUIColor.red]
-        pieChartView.data = pieChartData
+        // Do any additional setup after loading the view.
     }
-
-    func updateLineChartData() {
-        var expenses = 0.0
-        var i = 0.0
-        for expense in GlobalData.expenses {
-            expenses = expense.expenseAmount
-            let value = ChartDataEntry(x: i, y: expenses)
-            lineChartEntry.append(value)
-            i += 1
-        }
-        let line1 = LineChartDataSet(entries: lineChartEntry, label: "Expenses")
-        line1.colors = [NSUIColor.red]
-        let data = LineChartData()
-        
-        data.addDataSet(line1)
-        lineChartView.data = data
-        lineChartView.chartDescription?.text = "Expenses Over Time"
+    
+    func configurePageControl() {
+        // The total number of pages that are available is based on how many available colors we have.
+        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 100,width: UIScreen.main.bounds.width,height: 50))
+        self.pageControl.numberOfPages = orderedViewControllers.count
+        self.pageControl.currentPage = 0
+        self.pageControl.tintColor = UIColor.black
+        self.pageControl.pageIndicatorTintColor = UIColor.lightGray
+        self.pageControl.currentPageIndicatorTintColor = UIColor.black
+        self.view.addSubview(pageControl)
     }
-
+    
+    func newVc(viewController: String) -> UIViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController)
+    }
+    
+    
+    // MARK: Delegate methords
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        let pageContentViewController = pageViewController.viewControllers![0]
+        self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
+    }
+    
+    // MARK: Data source functions.
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
+            return nil
+        }
+        
+        let previousIndex = viewControllerIndex - 1
+        
+        // User is on the first view controller and swiped left to loop to
+        // the last view controller.
+        guard previousIndex >= 0 else {
+            return orderedViewControllers.last
+            // Uncommment the line below, remove the line above if you don't want the page control to loop.
+            // return nil
+        }
+        
+        guard orderedViewControllers.count > previousIndex else {
+            return nil
+        }
+        
+        return orderedViewControllers[previousIndex]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
+            return nil
+        }
+        
+        let nextIndex = viewControllerIndex + 1
+        let orderedViewControllersCount = orderedViewControllers.count
+        
+        // User is on the last view controller and swiped right to loop to
+        // the first view controller.
+        guard orderedViewControllersCount != nextIndex else {
+            return orderedViewControllers.first
+        }
+        
+        guard orderedViewControllersCount > nextIndex else {
+            return nil
+        }
+        
+        return orderedViewControllers[nextIndex]
+    }
 }
 
