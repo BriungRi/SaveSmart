@@ -45,7 +45,7 @@ class LineChartViewController: UIViewController {
             lineChartEntry.append(value)
             i += 1
         }
-        let line1 = LineChartDataSet(entries: lineChartEntry, label: "Expenses")
+        let line1 = LineChartDataSet(entries: lineChartEntry, label: "Expenses over time")
         line1.colors = [NSUIColor.red]
         let data = LineChartData()
         

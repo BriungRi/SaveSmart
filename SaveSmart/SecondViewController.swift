@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+class SecondViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate {
     
     var pageControl = UIPageControl()
     
@@ -25,7 +25,6 @@ class SecondViewController: UIPageViewController, UIPageViewControllerDelegate, 
         self.delegate = self
         
         
-        
         // This sets up the first view that will show up on our page control
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],
@@ -39,13 +38,18 @@ class SecondViewController: UIPageViewController, UIPageViewControllerDelegate, 
         // Do any additional setup after loading the view.
     }
     
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+        pageControl.currentPage = Int(pageNumber)
+    }
+    
     func configurePageControl() {
         // The total number of pages that are available is based on how many available colors we have.
         pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 100,width: UIScreen.main.bounds.width,height: 50))
         self.pageControl.numberOfPages = orderedViewControllers.count
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = UIColor.black
-        self.pageControl.pageIndicatorTintColor = UIColor.lightGray
+        self.pageControl.pageIndicatorTintColor = UIColor.white
         self.pageControl.currentPageIndicatorTintColor = UIColor.black
         self.view.addSubview(pageControl)
     }
