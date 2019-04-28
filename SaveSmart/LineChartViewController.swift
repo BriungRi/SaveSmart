@@ -17,6 +17,7 @@ class LineChartViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("View did appear")
@@ -115,17 +116,19 @@ class LineChartViewController: UIViewController {
             let dataEntry = ChartDataEntry(x: Double(i), y: expenseValues[i])
             dataEntries.append(dataEntry)
         }
-        
         // add x-axis label for months
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         lineChartView.xAxis.granularity = 1
         let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "Expenses Per Month")
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
+        lineChartDataSet.colors = ChartColorTemplates.joyful()
+        lineChartDataSet.colors = [NSUIColor.magenta]
         lineChartView.data = lineChartData
         // set axis labels to be visible
         lineChartView.xAxis.granularity = 1
         lineChartView.xAxis.granularityEnabled = true
         lineChartView.xAxis.labelCount = months.count;
+        lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
     }
 }
 

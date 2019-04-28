@@ -16,7 +16,8 @@ class SecondViewController: UIPageViewController, UIPageViewControllerDelegate, 
     
     lazy var orderedViewControllers: [UIViewController] = {
         return [self.newVc(viewController: "pieChart"),
-                self.newVc(viewController: "lineChart")]
+                self.newVc(viewController: "lineChart"),
+                self.newVc(viewController: "barChart")]
     }()
     
     override func viewDidLoad() {
@@ -38,18 +39,18 @@ class SecondViewController: UIPageViewController, UIPageViewControllerDelegate, 
         // Do any additional setup after loading the view.
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
     }
     
     func configurePageControl() {
         // The total number of pages that are available is based on how many available colors we have.
-        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 100,width: UIScreen.main.bounds.width,height: 50))
+        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 125,width: UIScreen.main.bounds.width,height: 50))
         self.pageControl.numberOfPages = orderedViewControllers.count
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = UIColor.black
-        self.pageControl.pageIndicatorTintColor = UIColor.white
+        self.pageControl.pageIndicatorTintColor = UIColor.gray
         self.pageControl.currentPageIndicatorTintColor = UIColor.black
         self.view.addSubview(pageControl)
     }

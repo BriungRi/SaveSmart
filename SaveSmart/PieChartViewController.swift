@@ -44,7 +44,6 @@ class PieChartViewController: UIViewController {
         for expsData in GlobalData.expenses {
             expenseTot += expsData.expenseAmount
         }
-        
         // add the budget and expense data to pie chart
         budgetEntry = PieChartDataEntry(value: budgetTot)
         expenseEntry = PieChartDataEntry(value: expenseTot)
@@ -54,8 +53,10 @@ class PieChartViewController: UIViewController {
         
         let pieChartDataSet = PieChartDataSet(entries: numEntries, label: "")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        pieChartDataSet.colors = [NSUIColor.blue, NSUIColor.red]
+        pieChartDataSet.colors = ChartColorTemplates.joyful()
         pieChartView.data = pieChartData
+        pieChartView.chartDescription?.text = "Total Budget vs. Total Expense"
+        pieChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInElastic)
     }
 
     /*
