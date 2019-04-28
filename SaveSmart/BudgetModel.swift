@@ -188,4 +188,11 @@ extension Date {
         if seconds(from: date) > 0 { return "\(seconds(from: date))s" }
         return ""
     }
+    
+    func monthAsString() -> String {
+        let df = DateFormatter()
+        df.setLocalizedDateFormatFromTemplate("MMM")
+        return df.string(from: self)
+    }
+    
 }

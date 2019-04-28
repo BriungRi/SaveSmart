@@ -34,14 +34,18 @@ class PieChartViewController: UIViewController {
     func updatePieChartData() {
         var budgetTot = 0.0
         var expenseTot = 0.0
+        
+        // get total budget
         for budgData in GlobalData.budgets {
             budgetTot += budgData.budgetTotal
         }
         
+        // get total expense
         for expsData in GlobalData.expenses {
             expenseTot += expsData.expenseAmount
         }
-        //pieChartView.chartDescription?.text = "Total Budget vs. Total Expense"
+        
+        // add the budget and expense data to pie chart
         budgetEntry = PieChartDataEntry(value: budgetTot)
         expenseEntry = PieChartDataEntry(value: expenseTot)
         budgetEntry.label = "Budget"
