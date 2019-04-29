@@ -15,6 +15,7 @@ class BudgetListViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+//        addDemoData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -23,6 +24,17 @@ class BudgetListViewController: UITableViewController {
             realm.addUncategorizedBudget()
         }
         tableView.reloadData()
+    }
+    
+    func addDemoData() {
+        let budget1 = Budget()
+        budget1.budgetName = "Shopping"
+        budget1.budgetTotal = 255
+        let budget2 = Budget()
+        budget2.budgetName = "Desserts"
+        budget2.budgetTotal = 10
+        addBudget(budget: budget1)
+        addBudget(budget: budget2)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

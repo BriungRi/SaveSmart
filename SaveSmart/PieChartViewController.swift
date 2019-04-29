@@ -18,8 +18,6 @@ class PieChartViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    var numEntries = [PieChartDataEntry]()
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -30,23 +28,21 @@ class PieChartViewController: UIViewController {
         var budgetTot = 0.0
         var expenseTot = 0.0
         
-        // get total budget
-        for budgData in GlobalData.budgets {
-            budgetTot += budgData.budgetTotal
+        for budget in GlobalData.budgets {
+            budgetTot += budget.budgetTotal
         }
         
-        // get total expense
-        for expsData in GlobalData.expenses {
-            expenseTot += expsData.expenseAmount
+        for expense in GlobalData.expenses {
+            expenseTot += expense.expenseAmount
         }
         
-        let budgetEntry = PieChartDataEntry(value: budgetTot)
+        let expensesEntry = PieChartDataEntry(value: budgetTot)
         let remainderEntry = PieChartDataEntry(value: max(budgetTot - expenseTot, 0))
-        budgetEntry.label = "Expenses"
+        let entries = [expensesEntry, remainderEntry]
+        expensesEntry.label = "Expenses"
         remainderEntry.label = "Remaining Budget"
-        numEntries = [budgetEntry, remainderEntry]
         
-        let pieChartDataSet = PieChartDataSet(entries: numEntries, label: "")
+        let pieChartDataSet = PieChartDataSet(entries: entries, label: "")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChartDataSet.colors = ChartColorTemplates.joyful()
         pieChartView.data = pieChartData

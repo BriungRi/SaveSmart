@@ -43,7 +43,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="aoC-0k-Sdl" kind="presentation" id="4oE-0Q-YAS"/>
+                                    <segue destination="aoC-0k-Sdl" kind="presentation" identifier="editBudgetSegue" id="4oE-0Q-YAS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -55,7 +55,7 @@
                     <navigationItem key="navigationItem" title="Budgets" id="Cfd-Wo-JA5">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="V9W-Ug-ec8">
                             <connections>
-                                <segue destination="aoC-0k-Sdl" kind="presentation" id="qY1-Fe-2Vf"/>
+                                <segue destination="aoC-0k-Sdl" kind="presentation" identifier="newBudgetSegue" id="qY1-Fe-2Vf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -637,6 +637,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="liv-5y-ISl"/>
-        <segue reference="4oE-0Q-YAS"/>
+        <segue reference="qY1-Fe-2Vf"/>
     </inferredMetricsTieBreakers>
 </document>

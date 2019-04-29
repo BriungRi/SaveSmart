@@ -16,6 +16,7 @@ class ExpenseListViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+//        addDemoData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -28,6 +29,60 @@ class ExpenseListViewController: UITableViewController {
                 controller.expenseAmt = "\(expenseToEdit.expenseAmount)"
                 controller.belongingBudgetIdx = indexPath.row
             }
+        }
+    }
+    
+    func addDemoData() {
+        let secondsInMonth = 2628000
+        let expense1 = Expense()
+        expense1.merchantName = "Skechers"
+        expense1.expenseAmount = 10.99
+        expense1.belongingBudget = GlobalData.budgets[0]
+        expense1.dateCreated.addTimeInterval(TimeInterval(secondsInMonth))
+        
+        let expense2 = Expense()
+        expense2.merchantName = "Canada Goose"
+        expense2.expenseAmount = 1000.88
+        expense2.belongingBudget = GlobalData.budgets[0]
+        expense2.dateCreated.addTimeInterval(TimeInterval(secondsInMonth * 3))
+        
+        let expense3 = Expense()
+        expense3.merchantName = "Patagonia"
+        expense3.expenseAmount = 80
+        expense3.belongingBudget = GlobalData.budgets[0]
+        expense3.dateCreated.addTimeInterval(TimeInterval(secondsInMonth * 4))
+        
+        let expense4 = Expense()
+        expense4.merchantName = "Cake"
+        expense4.expenseAmount = 2.50
+        expense4.belongingBudget = GlobalData.budgets[0]
+        expense4.dateCreated.addTimeInterval(TimeInterval(secondsInMonth * 2))
+        
+        let expense5 = Expense()
+        expense5.merchantName = "Lunas"
+        expense5.expenseAmount = 8.88
+        expense5.belongingBudget = GlobalData.budgets[0]
+        expense5.dateCreated.addTimeInterval(TimeInterval(secondsInMonth * 3))
+        
+        let expense6 = Expense()
+        expense6.merchantName = "Paris Baguette"
+        expense6.expenseAmount = 15.72
+        expense6.belongingBudget = GlobalData.budgets[0]
+        expense6.dateCreated.addTimeInterval(TimeInterval(secondsInMonth * 5))
+        
+        let expense7 = Expense()
+        expense7.merchantName = "McDonalds"
+        expense7.expenseAmount = 4.96
+        expense7.belongingBudget = GlobalData.budgets[0]
+        
+        let expense8 = Expense()
+        expense8.merchantName = "Brooks"
+        expense8.expenseAmount = 96.00
+        expense8.belongingBudget = GlobalData.budgets[0]
+        
+        let expenses = [expense1, expense2, expense3, expense4, expense5, expense6, expense7, expense8]
+        for expense in expenses {
+            addExpense(expense: expense)
         }
     }
     

@@ -44,7 +44,7 @@ class Budget: Object {
             .filter({(expense: Expense) -> Bool in
                 return expense.belongingBudget?.budgetName == self.budgetName})
             .filter({(expense: Expense) -> Bool in
-                return dateCreated.months(from: expense.dateCreated) == dateCreated.months(from: Date())
+                return dateCreated.monthAsString() == Date().monthAsString()
             })
             .reduce(0, {(res: Double, expense: Expense) -> Double in
                 return res + expense.expenseAmount})
@@ -61,7 +61,7 @@ class Expense: Object {
     @objc dynamic var merchantName: String = ""
     @objc dynamic var expenseAmount: Double = 0.0
     @objc dynamic var belongingBudget: Budget? = GlobalData.uncategorizedBudget
-    @objc dynamic let dateCreated = Date()
+    @objc dynamic var dateCreated = Date()
     
     var formattedExpenseAmount: String {
         return "-\(formatCurrency(value: expenseAmount))"
@@ -106,7 +106,7 @@ extension Realm {
     
     func add(expense: Expense) {
         try! write {
-            create(Expense.self, value: [expense.merchantName, expense.expenseAmount, expense.belongingBudget!])
+            create(Expense.self, value: [expense.merchantName, expense.expenseAmount, expense.belongingBudget!, expense.dateCreated])
             GlobalData.expenseCacheInvalidated = true
         }
     }

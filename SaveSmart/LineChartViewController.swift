@@ -58,51 +58,63 @@ class LineChartViewController: UIViewController {
         
         // get monthly total expense
         for expsData in GlobalData.expenses {
-            if(expsData.dateCreated.monthAsString() == "Jan") {
+            if(expsData.dateCreated.monthAsString() == "Jan" &&
+                expsData.dateCreated.years(from: Date()) == 0) {
                 expenseTot += expsData.expenseAmount
                 jan = expenseTot
             }
-            if(expsData.dateCreated.monthAsString() == "Feb") {
+            if(expsData.dateCreated.monthAsString() == "Feb" &&
+                expsData.dateCreated.years(from: Date()) == 0) {
                 expenseTot += expsData.expenseAmount
                 feb = expenseTot
             }
-            if(expsData.dateCreated.monthAsString() == "Mar") {
+            if(expsData.dateCreated.monthAsString() == "Mar" &&
+                expsData.dateCreated.years(from: Date()) == 0) {
                 expenseTot += expsData.expenseAmount
                 mar = expenseTot
             }
-            if(expsData.dateCreated.monthAsString() == "Apr") {
+            if(expsData.dateCreated.monthAsString() == "Apr" &&
+                expsData.dateCreated.years(from: Date()) == 0) {
                 expenseTot += expsData.expenseAmount
                 apr = expenseTot
             }
-            if(expsData.dateCreated.monthAsString() == "May") {
+            if(expsData.dateCreated.monthAsString() == "May" &&
+                expsData.dateCreated.years(from: Date()) == 0) {
                 expenseTot += expsData.expenseAmount
                 may = expenseTot
             }
-            if(expsData.dateCreated.monthAsString() == "Jun") {
+            if(expsData.dateCreated.monthAsString() == "Jun" &&
+                expsData.dateCreated.years(from: Date()) == 0) {
                 expenseTot += expsData.expenseAmount
                 june = expenseTot
             }
-            if(expsData.dateCreated.monthAsString() == "Jul") {
+            if(expsData.dateCreated.monthAsString() == "Jul" &&
+                expsData.dateCreated.years(from: Date()) == 0) {
                 expenseTot += expsData.expenseAmount
                 july = expenseTot
             }
-            if(expsData.dateCreated.monthAsString() == "Aug") {
+            if(expsData.dateCreated.monthAsString() == "Aug" &&
+                expsData.dateCreated.years(from: Date()) == 0) {
                 expenseTot += expsData.expenseAmount
                 aug = expenseTot
             }
-            if(expsData.dateCreated.monthAsString() == "Sep") {
+            if(expsData.dateCreated.monthAsString() == "Sep" &&
+                expsData.dateCreated.years(from: Date()) == 0) {
                 expenseTot += expsData.expenseAmount
                 sept = expenseTot
             }
-            if(expsData.dateCreated.monthAsString() == "Oct") {
+            if(expsData.dateCreated.monthAsString() == "Oct" &&
+                expsData.dateCreated.years(from: Date()) == 0) {
                 expenseTot += expsData.expenseAmount
                 oct = expenseTot
             }
-            if(expsData.dateCreated.monthAsString() == "Nov") {
+            if(expsData.dateCreated.monthAsString() == "Nov" &&
+                expsData.dateCreated.years(from: Date()) == 0) {
                 expenseTot += expsData.expenseAmount
                 nov = expenseTot
             }
-            if(expsData.dateCreated.monthAsString() == "Dec") {
+            if(expsData.dateCreated.monthAsString() == "Dec" &&
+                expsData.dateCreated.years(from: Date()) == 0) {
                 expenseTot += expsData.expenseAmount
                 dec = expenseTot
             }
