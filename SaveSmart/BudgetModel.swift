@@ -42,9 +42,8 @@ class Budget: Object {
     var expenseTotal: Double {
         return GlobalData.expenses
             .filter({(expense: Expense) -> Bool in
-                return expense.belongingBudget?.budgetName == self.budgetName})
-            .filter({(expense: Expense) -> Bool in
-                return dateCreated.monthAsString() == Date().monthAsString()
+                return expense.belongingBudget?.budgetName == self.budgetName && dateCreated.monthAsString() == Date().monthAsString() &&
+                dateCreated.years(from: Date()) == Date().years(from: Date())
             })
             .reduce(0, {(res: Double, expense: Expense) -> Double in
                 return res + expense.expenseAmount})
