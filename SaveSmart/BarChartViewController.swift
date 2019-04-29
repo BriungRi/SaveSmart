@@ -10,8 +10,9 @@ import UIKit
 import Charts
 
 class BarChartViewController: UIViewController {
-    
 
+    var selectedBudget = GlobalData.budgets[0]
+    
     @IBOutlet weak var barChartView: BarChartView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,47 +22,37 @@ class BarChartViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("View did appear")
         updateBarChartData()
+        barChartView.rightAxis.enabled = false
     }
     
     
     func updateBarChartData() {
-        var budgets = [String]()
-        print(budgets)
-        var i = 0
-        var budgetTot = [Double]()
-        for budget in GlobalData.budgets {
-            let budgetName = budget.budgetName
-            budgets.append(budgetName)
-            budgetTot.append(budget.budgetTotal)
-            print(budgets)
-            print(budgetTot)
-            i+=1
-        }
+        let dataEntries = [BarChartDataEntry(x: 0, y: selectedBudget.expenseTotal)]
         
-        
-        
-        var dataEntries: [BarChartDataEntry] = []
-        
-        for i in 0..<budgets.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: budgetTot[i])
-            dataEntries.append(dataEntry)
-        }
-        
-        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: budgets)
+        barChartView.leftAxis.removeAllLimitLines()
+        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: [selectedBudget.budgetName])
         let chartDataSet = BarChartDataSet(dataEntries)
         let chartData = BarChartData(dataSet: chartDataSet)
         chartDataSet.colors = ChartColorTemplates.joyful()
-        chartDataSet.label? = "Budget Per Category"
+        chartDataSet.label? = "\(selectedBudget.budgetName) Budget"
         barChartView.data = chartData
-        let ll = ChartLimitLine(limit: 1000, label: "Limit: $1000")
-        ll.lineColor = NSUIColor.brown
-        barChartView.rightAxis.addLimitLine(ll)
+        let ll = ChartLimitLine(limit: selectedBudget.budgetTotal, label: "Limit: $\(selectedBudget.budgetTotal)")
+        ll.lineColor = NSUIColor.red
+        barChartView.leftAxis.addLimitLine(ll)
         barChartView.xAxis.granularity = 1
         barChartView.xAxis.granularityEnabled = true
-        barChartView.xAxis.labelCount = budgets.count;
-        barChartView.animate(xAxisDuration:   1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
+        barChartView.xAxis.labelCount = GlobalData.budgets.count;
+        barChartView.leftAxis.axisMinimum = 0
+        barChartView.leftAxis.axisMaximum = max(selectedBudget.budgetTotal, selectedBudget.expenseTotal) * 1.1
+    }
+    
+    @IBAction func unwindToBarChart(segue:UIStoryboardSegue) {
+        if segue.source is BudgetSelectionViewController{
+            let vc = segue.source as! BudgetSelectionViewController
+            selectedBudget = vc.selectedBudget
+            updateBarChartData()
+        }
     }
 
 

@@ -20,8 +20,8 @@ class LineChartViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("View did appear")
         updateLineChartData()
+        lineChartView.rightAxis.enabled = false
     }
     
     

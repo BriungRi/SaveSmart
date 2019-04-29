@@ -205,25 +205,16 @@
             </objects>
             <point key="canvasLocation" x="2028" y="310"/>
         </scene>
-        <!--Pie Chart View Controller-->
+        <!--Budget vs. Expense-->
         <scene sceneID="si8-OJ-6DZ">
             <objects>
-                <viewController storyboardIdentifier="pieChart" id="AX2-GY-ARj" customClass="PieChartViewController" customModule="SaveSmart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AX2-GY-ARj" customClass="PieChartViewController" customModule="SaveSmart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Rn-hc-8Ct">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DcK-7L-LpS" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="39" width="375" height="543"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Budget vs. Expense" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sh-xK-iPA">
-                                        <rect key="frame" x="109" y="0.0" width="192" height="66"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                                <rect key="frame" x="0.0" y="83" width="375" height="499"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                             </view>
                         </subviews>
@@ -236,13 +227,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ebg-f6-1ry"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Budget vs. Expense" id="OFc-Ee-3DD"/>
                     <connections>
                         <outlet property="pieChartView" destination="DcK-7L-LpS" id="Kix-2T-xqE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dH2-9W-219" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1999.2" y="1025.9370314842579"/>
+            <point key="canvasLocation" x="2938.4000000000001" y="1025.9370314842579"/>
         </scene>
         <!--Visualizer-->
         <scene sceneID="HcH-Ii-EYX">
@@ -255,86 +247,73 @@
             </objects>
             <point key="canvasLocation" x="1089" y="1026"/>
         </scene>
-        <!--Line Chart View Controller-->
+        <!--Monthly Expenses-->
         <scene sceneID="ZDh-fP-Zs5">
             <objects>
-                <viewController storyboardIdentifier="lineChart" id="FYq-je-0uw" customClass="LineChartViewController" customModule="SaveSmart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FYq-je-0uw" customClass="LineChartViewController" customModule="SaveSmart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Twc-wd-e8M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bsh-G2-cs1" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="80" width="375" height="492"/>
+                                <rect key="frame" x="0.0" y="124" width="375" height="448"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Expenses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8x-Ip-8Zx">
-                                <rect key="frame" x="104" y="51" width="173" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="21Z-Rg-1Ip" firstAttribute="bottom" secondItem="Bsh-G2-cs1" secondAttribute="bottom" constant="95" id="4GH-gm-C5H"/>
-                            <constraint firstItem="x8x-Ip-8Zx" firstAttribute="leading" secondItem="21Z-Rg-1Ip" secondAttribute="leading" constant="104" id="BV1-U4-CKD"/>
                             <constraint firstItem="Bsh-G2-cs1" firstAttribute="leading" secondItem="Twc-wd-e8M" secondAttribute="leading" id="G1L-28-DuF"/>
-                            <constraint firstItem="Bsh-G2-cs1" firstAttribute="top" secondItem="x8x-Ip-8Zx" secondAttribute="bottom" constant="8" symbolic="YES" id="N0g-gc-Pw1"/>
+                            <constraint firstItem="Bsh-G2-cs1" firstAttribute="top" secondItem="21Z-Rg-1Ip" secondAttribute="top" constant="60" id="TXy-Op-1op"/>
                             <constraint firstAttribute="trailing" secondItem="Bsh-G2-cs1" secondAttribute="trailing" id="dx1-O8-4Aa"/>
-                            <constraint firstItem="21Z-Rg-1Ip" firstAttribute="trailing" secondItem="x8x-Ip-8Zx" secondAttribute="trailing" constant="98" id="mk2-XO-Lfm"/>
-                            <constraint firstItem="x8x-Ip-8Zx" firstAttribute="top" secondItem="21Z-Rg-1Ip" secondAttribute="top" constant="31" id="v4H-am-2hM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="21Z-Rg-1Ip"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Monthly Expenses" id="g12-1Z-oNF"/>
                     <connections>
                         <outlet property="lineChartView" destination="Bsh-G2-cs1" id="Ief-VS-AYF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YKV-3w-3m1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1981.5999999999999" y="1712.2938530734634"/>
+            <point key="canvasLocation" x="2920.8000000000002" y="1712.2938530734634"/>
         </scene>
-        <!--Bar Chart View Controller-->
+        <!--Budget Per Category-->
         <scene sceneID="moX-as-eQc">
             <objects>
-                <viewController storyboardIdentifier="barChart" id="22o-A4-9El" customClass="BarChartViewController" customModule="SaveSmart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="22o-A4-9El" customClass="BarChartViewController" customModule="SaveSmart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6XI-75-A4L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugn-g8-zPq" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="115" width="375" height="446"/>
+                                <rect key="frame" x="0.0" y="159" width="375" height="402"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Per Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwK-R9-ulY">
-                                <rect key="frame" x="87" y="72" width="201" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Ks5-Jz-C7N"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nwK-R9-ulY" firstAttribute="leading" secondItem="jSq-9w-mET" secondAttribute="leading" constant="87" id="19e-kf-kfh"/>
-                            <constraint firstItem="nwK-R9-ulY" firstAttribute="top" secondItem="jSq-9w-mET" secondAttribute="top" constant="52" id="6sl-Pq-BSP"/>
                             <constraint firstItem="ugn-g8-zPq" firstAttribute="leading" secondItem="6XI-75-A4L" secondAttribute="leading" id="Eah-fx-2Rr"/>
-                            <constraint firstItem="nwK-R9-ulY" firstAttribute="centerX" secondItem="ugn-g8-zPq" secondAttribute="centerX" id="O6W-cI-bIB"/>
-                            <constraint firstItem="ugn-g8-zPq" firstAttribute="top" secondItem="nwK-R9-ulY" secondAttribute="bottom" constant="8" symbolic="YES" id="gZX-Or-Wbu"/>
+                            <constraint firstItem="ugn-g8-zPq" firstAttribute="top" secondItem="jSq-9w-mET" secondAttribute="top" constant="95" id="hFj-rh-988"/>
                             <constraint firstItem="jSq-9w-mET" firstAttribute="bottom" secondItem="ugn-g8-zPq" secondAttribute="bottom" constant="106" id="tAD-NO-hw6"/>
                             <constraint firstAttribute="trailing" secondItem="ugn-g8-zPq" secondAttribute="trailing" id="zcC-nU-F7J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jSq-9w-mET"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Budget Per Category" id="p4z-uo-wau">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="jkl-en-Uhy">
+                            <connections>
+                                <segue destination="4i2-zW-gX2" kind="presentation" id="jF5-PE-zgi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="barChartView" destination="ugn-g8-zPq" id="6mQ-MC-iuH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3s-Hl-KG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1981.5999999999999" y="2417.5412293853074"/>
+            <point key="canvasLocation" x="2920.8000000000002" y="2417.5412293853074"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -527,6 +506,128 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w8l-hF-Jsn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2817" y="310"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cf1-eT-PyM">
+            <objects>
+                <navigationController storyboardIdentifier="barChart" automaticallyAdjustsScrollViewInsets="NO" id="TfB-u5-2CN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1At-Xd-Zjw">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="22o-A4-9El" kind="relationship" relationship="rootViewController" id="ISQ-LF-ks4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCJ-vn-g0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1981.5999999999999" y="2417.5412293853074"/>
+        </scene>
+        <!--Budget Selection-->
+        <scene sceneID="34o-1Z-O7a">
+            <objects>
+                <viewController id="icD-fA-njx" customClass="BudgetSelectionViewController" customModule="SaveSmart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1lG-21-dYF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Bar Chart For:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hy-NP-iJU">
+                                <rect key="frame" x="110.5" y="117" width="154" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szc-zT-bs8">
+                                <rect key="frame" x="28" y="146" width="319" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="szc-zT-bs8" firstAttribute="top" secondItem="4hy-NP-iJU" secondAttribute="bottom" constant="8" symbolic="YES" id="ffd-Pl-NaW"/>
+                            <constraint firstItem="szc-zT-bs8" firstAttribute="leading" secondItem="Q2R-kr-fUp" secondAttribute="leading" constant="28" id="iAN-kG-Hdw"/>
+                            <constraint firstItem="4hy-NP-iJU" firstAttribute="top" secondItem="Q2R-kr-fUp" secondAttribute="top" constant="53" id="mdr-kj-eAJ"/>
+                            <constraint firstItem="szc-zT-bs8" firstAttribute="centerX" secondItem="4hy-NP-iJU" secondAttribute="centerX" id="nQO-KK-bd4"/>
+                            <constraint firstItem="szc-zT-bs8" firstAttribute="centerX" secondItem="1lG-21-dYF" secondAttribute="centerX" id="p7Z-Us-GIC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q2R-kr-fUp"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Budget Selection" id="mmi-Da-saH">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PFg-We-xZn">
+                            <connections>
+                                <action selector="onCancelPress:" destination="icD-fA-njx" id="IHx-g8-yIG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="VXa-xc-uW5">
+                            <connections>
+                                <action selector="onSavePress:" destination="icD-fA-njx" id="WhL-HS-USr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="budgetPickerView" destination="szc-zT-bs8" id="Oyp-m7-wuE"/>
+                        <segue destination="Jx5-dN-heD" kind="unwind" identifier="unwindToBarChart" unwindAction="unwindToBarChartWithSegue:" id="vVM-6j-Tw5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wye-Dd-Kpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Jx5-dN-heD" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4808.8000000000002" y="2417.5412293853074"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kug-a3-wxA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4i2-zW-gX2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ywd-FR-FwM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="icD-fA-njx" kind="relationship" relationship="rootViewController" id="dat-Jq-1uq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="08v-H7-Zks" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3869.5999999999999" y="2417.5412293853074"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="33a-vW-7Dd">
+            <objects>
+                <navigationController storyboardIdentifier="lineChart" automaticallyAdjustsScrollViewInsets="NO" id="r31-4w-K4U" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ofY-UO-YFn">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FYq-je-0uw" kind="relationship" relationship="rootViewController" id="24Y-n8-hYc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xkk-TP-EhB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1981.5999999999999" y="1712.2938530734634"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wjm-Nk-eFv">
+            <objects>
+                <navigationController storyboardIdentifier="pieChart" automaticallyAdjustsScrollViewInsets="NO" id="55f-7s-r5P" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yPN-Vl-hjl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AX2-GY-ARj" kind="relationship" relationship="rootViewController" id="H69-XU-yO7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="087-WB-SUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1999.2" y="1025.9370314842579"/>
         </scene>
     </scenes>
     <resources>

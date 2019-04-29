@@ -18,16 +18,11 @@ class PieChartViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    var expenseEntry = PieChartDataEntry(value: 0)
-    var budgetEntry = PieChartDataEntry(value: 0)
-    
-    
     var numEntries = [PieChartDataEntry]()
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("View did appear")
         updatePieChartData()
     }
     
@@ -44,12 +39,12 @@ class PieChartViewController: UIViewController {
         for expsData in GlobalData.expenses {
             expenseTot += expsData.expenseAmount
         }
-        // add the budget and expense data to pie chart
-        budgetEntry = PieChartDataEntry(value: budgetTot)
-        expenseEntry = PieChartDataEntry(value: expenseTot)
-        budgetEntry.label = "Budget"
-        expenseEntry.label = "Expense"
-        numEntries = [budgetEntry, expenseEntry]
+        
+        let budgetEntry = PieChartDataEntry(value: budgetTot)
+        let remainderEntry = PieChartDataEntry(value: max(budgetTot - expenseTot, 0))
+        budgetEntry.label = "Expenses"
+        remainderEntry.label = "Remaining Budget"
+        numEntries = [budgetEntry, remainderEntry]
         
         let pieChartDataSet = PieChartDataSet(entries: numEntries, label: "")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
