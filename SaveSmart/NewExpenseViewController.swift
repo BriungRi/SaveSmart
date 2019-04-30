@@ -46,7 +46,7 @@ class NewExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
         if expenseAmt.doubleValue == nil {
             showNaNAlert()
         } else {
-            performSegue(withIdentifier: "unwindToExpenseList", sender: self)
+            performSegue(withIdentifier: "unwindToExpenseListFromNewExpense", sender: self)
         }
     }
     

@@ -68,9 +68,9 @@ class BudgetListViewController: UITableViewController {
         if budget.expenseTotal == budget.budgetTotal {
             cell.backgroundColor = UIColor .yellow
         } else if budget.expenseTotal < budget.budgetTotal {
-            cell.backgroundColor = UIColor .green
+            cell.backgroundColor = CustomColors.green
         } else {
-            cell.backgroundColor = UIColor .red
+            cell.backgroundColor = CustomColors.red
         }
         return cell
     }

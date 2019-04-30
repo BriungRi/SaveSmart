@@ -123,7 +123,7 @@ class LineChartViewController: UIViewController {
         // add x-axis label for months
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         lineChartView.xAxis.granularity = 1
-        let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "Expenses Per Month For \(selectedBudget.budgetName)")
+        let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "\(selectedBudget.budgetName) budget")
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
         lineChartDataSet.colors = ChartColorTemplates.joyful()
         lineChartDataSet.colors = [NSUIColor.magenta]

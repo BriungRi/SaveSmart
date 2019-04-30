@@ -11,6 +11,13 @@ import RealmSwift
 
 class ExpenseListViewController: UITableViewController {
     
+    var sortFunctionIdx = 0
+    var filterBudgetName = GlobalData.allBudgetsName
+    var expenses: [Expense] {
+        return GlobalData.expenses.filter({(expense) -> Bool in
+            return filterBudgetName == GlobalData.allBudgetsName || expense.belongingBudget!.budgetName == filterBudgetName}).sorted(by: GlobalData.sorts[sortFunctionIdx].1)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,12 +30,16 @@ class ExpenseListViewController: UITableViewController {
         if segue.identifier == "editExpenseSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let controller = (segue.destination as! UINavigationController).topViewController as! NewExpenseViewController
-                let expenseToEdit = GlobalData.expenses[indexPath.row]
+                let expenseToEdit = expenses[indexPath.row]
                 controller.originalExpense = expenseToEdit
                 controller.merchantName = expenseToEdit.merchantName
                 controller.expenseAmt = "\(expenseToEdit.expenseAmount)"
                 controller.belongingBudgetIdx = indexPath.row
             }
+        } else if segue.identifier == "filterExpensesSegue" {
+            let controller = (segue.destination as! UINavigationController).topViewController as! FilterExpenseViewController
+            controller.sortFunctionIdx = sortFunctionIdx
+            controller.filterBudgetName = filterBudgetName
         }
     }
     
@@ -93,13 +104,13 @@ class ExpenseListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return GlobalData.expenses.count
+        return expenses.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let expense = GlobalData.expenses[indexPath.row]
+        let expense = expenses[indexPath.row]
         cell.textLabel!.text = "\(expense.formattedExpenseAmount) [\(expense.belongingBudget!.budgetName)]"
         cell.detailTextLabel!.text = "\(expense.merchantName), \(expense.dateCreated.description)"
         return cell
@@ -112,7 +123,7 @@ class ExpenseListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let expenses = GlobalData.expenses
+            let expenses = self.expenses
             let toDelete = expenses[indexPath.row]
             deleteExpense(expense: toDelete)
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -120,7 +131,7 @@ class ExpenseListViewController: UITableViewController {
     }
     
     @IBAction func unwindToExpenseList(segue:UIStoryboardSegue) {
-        if segue.source is NewExpenseViewController{
+        if segue.source is NewExpenseViewController {
             let vc = segue.source as! NewExpenseViewController
             let toAdd = vc.newExpense
             if let originalExpense = vc.originalExpense {
@@ -128,6 +139,11 @@ class ExpenseListViewController: UITableViewController {
             } else {
                 addExpense(expense: toAdd)
             }
+            tableView.reloadData()
+        } else if segue.source is FilterExpenseViewController {
+            let vc = segue.source as! FilterExpenseViewController
+            sortFunctionIdx = vc.sortFunctionIdx
+            filterBudgetName = vc.filterBudgetName
             tableView.reloadData()
         }
     }

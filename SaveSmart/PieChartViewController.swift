@@ -28,24 +28,18 @@ class PieChartViewController: UIViewController {
     }
     
     func updatePieChartData() {
-        var budgetTot = 0.0
-        var expenseTot = 0.0
-        print(selectedBudget.budgetName)
-        budgetTot = selectedBudget.budgetTotal
+        let expensesEntry = PieChartDataEntry(value: (selectedBudget.expenseTotal / selectedBudget.budgetTotal) * 100)
+        let remainderEntry = PieChartDataEntry(value: (max(selectedBudget.budgetTotal - selectedBudget.expenseTotal, 0) / selectedBudget.budgetTotal) * 100)
         
-        expenseTot += selectedBudget.expenseTotal
-        
-        let expensesEntry = PieChartDataEntry(value: budgetTot)
-        let remainderEntry = PieChartDataEntry(value: max(budgetTot - expenseTot, 0))
         let entries = [expensesEntry, remainderEntry]
-        expensesEntry.label = "Expenses"
-        remainderEntry.label = "Budget"
+        expensesEntry.label = "Expenses %"
+        remainderEntry.label = "Remainder %"
         
         let pieChartDataSet = PieChartDataSet(entries: entries, label: "")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        pieChartDataSet.colors = ChartColorTemplates.joyful()
+        pieChartDataSet.colors = [CustomColors.red, CustomColors.green]
         pieChartView.data = pieChartData
-        pieChartView.chartDescription?.text = "Remaining Budget vs. Total Expense for \(selectedBudget.budgetName)"
+        pieChartView.centerText = "\(selectedBudget.budgetName) budget"
         DispatchQueue.main.async(execute: {() -> Void in
             self.pieChartView.animate(xAxisDuration: 1.75, yAxisDuration: 1.75, easingOption: .easeInBack)
         })

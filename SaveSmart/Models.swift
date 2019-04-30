@@ -8,6 +8,12 @@
 
 import Foundation
 import RealmSwift
+import Charts
+
+class CustomColors {
+    static let red = ChartColorTemplates.joyful()[0]
+    static let green = NSUIColor(red: 102/255.0, green: 187/255.0, blue: 106/255.0, alpha: 1.0)
+}
 
 class GlobalData {
     static var uncategorizedBudget: Budget? {
@@ -33,6 +39,8 @@ class GlobalData {
         }
         return cachedExpenses
     }
+    static let sorts: [(String, (Expense, Expense) -> Bool)] = [("Price (Low to High)", {(expense1, expense2) -> Bool in expense1.expenseAmount < expense2.expenseAmount}), ("Price (High to Low)", {(expense1, expense2) -> Bool in expense1.expenseAmount > expense2.expenseAmount}), ("Date (Newest First)", {(expense1, expense2) -> Bool in expense1.dateCreated > expense2.dateCreated}), ("Date (Oldest First)", {(expense1, expense2) -> Bool in expense1.dateCreated < expense2.dateCreated})]
+    static let allBudgetsName = "All"
 }
 
 class Budget: Object {

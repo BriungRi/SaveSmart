@@ -13,13 +13,14 @@
 		B7D2A6DD2267AEAE00DB4D69 /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D2A6DC2267AEAE00DB4D69 /* PieChartViewController.swift */; };
 		B7D2A6DF2267AEBF00DB4D69 /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D2A6DE2267AEBF00DB4D69 /* LineChartViewController.swift */; };
 		C75EA5B8227736DE00459E0A /* BudgetSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75EA5B7227736DE00459E0A /* BudgetSelectionViewController.swift */; };
+		C75EA5BA22789E2400459E0A /* FilterExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75EA5B922789E2400459E0A /* FilterExpenseViewController.swift */; };
 		C7F82E62226244D2004DA01B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E61226244D2004DA01B /* AppDelegate.swift */; };
 		C7F82E64226244D2004DA01B /* BudgetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E63226244D2004DA01B /* BudgetListViewController.swift */; };
 		C7F82E66226244D2004DA01B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E65226244D2004DA01B /* SecondViewController.swift */; };
 		C7F82E69226244D2004DA01B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F82E67226244D2004DA01B /* Main.storyboard */; };
 		C7F82E6B226244D4004DA01B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F82E6A226244D4004DA01B /* Assets.xcassets */; };
 		C7F82E6E226244D4004DA01B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F82E6C226244D4004DA01B /* LaunchScreen.storyboard */; };
-		C7F82E7622624B4A004DA01B /* BudgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E7522624B4A004DA01B /* BudgetModel.swift */; };
+		C7F82E7622624B4A004DA01B /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E7522624B4A004DA01B /* Models.swift */; };
 		C7F82E78226290E0004DA01B /* ExpenseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E77226290E0004DA01B /* ExpenseListViewController.swift */; };
 		C7F82E7A226292E5004DA01B /* NewBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E79226292E5004DA01B /* NewBudgetViewController.swift */; };
 		C7F82E7C226292F3004DA01B /* NewExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82E7B226292F3004DA01B /* NewExpenseViewController.swift */; };
@@ -36,6 +37,7 @@
 		B7D2A6DC2267AEAE00DB4D69 /* PieChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		B7D2A6DE2267AEBF00DB4D69 /* LineChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
 		C75EA5B7227736DE00459E0A /* BudgetSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSelectionViewController.swift; sourceTree = "<group>"; };
+		C75EA5B922789E2400459E0A /* FilterExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExpenseViewController.swift; sourceTree = "<group>"; };
 		C7F82E5E226244D2004DA01B /* SaveSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F82E61226244D2004DA01B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7F82E63226244D2004DA01B /* BudgetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetListViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +46,7 @@
 		C7F82E6A226244D4004DA01B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7F82E6D226244D4004DA01B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7F82E6F226244D4004DA01B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C7F82E7522624B4A004DA01B /* BudgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModel.swift; sourceTree = "<group>"; };
+		C7F82E7522624B4A004DA01B /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		C7F82E77226290E0004DA01B /* ExpenseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListViewController.swift; sourceTree = "<group>"; };
 		C7F82E79226292E5004DA01B /* NewBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetViewController.swift; sourceTree = "<group>"; };
 		C7F82E7B226292F3004DA01B /* NewExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseViewController.swift; sourceTree = "<group>"; };
@@ -94,12 +96,13 @@
 				C7F82E6A226244D4004DA01B /* Assets.xcassets */,
 				C7F82E6C226244D4004DA01B /* LaunchScreen.storyboard */,
 				C7F82E6F226244D4004DA01B /* Info.plist */,
-				C7F82E7522624B4A004DA01B /* BudgetModel.swift */,
+				C7F82E7522624B4A004DA01B /* Models.swift */,
 				B7D2A6DC2267AEAE00DB4D69 /* PieChartViewController.swift */,
 				B7D2A6DE2267AEBF00DB4D69 /* LineChartViewController.swift */,
 				B7C2B91622762DBF00087A6A /* BarChartViewController.swift */,
 				B7C2B91A2277879100087A6A /* PieChartSelectionViewController.swift */,
 				B7C2B91C2277B9C400087A6A /* LineChartSelectionViewController.swift */,
+				C75EA5B922789E2400459E0A /* FilterExpenseViewController.swift */,
 			);
 			path = SaveSmart;
 			sourceTree = "<group>";
@@ -245,11 +248,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7F82E7622624B4A004DA01B /* BudgetModel.swift in Sources */,
+				C7F82E7622624B4A004DA01B /* Models.swift in Sources */,
 				B7C2B91D2277B9C400087A6A /* LineChartSelectionViewController.swift in Sources */,
 				C7F82E66226244D2004DA01B /* SecondViewController.swift in Sources */,
 				C7F82E7C226292F3004DA01B /* NewExpenseViewController.swift in Sources */,
 				C7F82E7A226292E5004DA01B /* NewBudgetViewController.swift in Sources */,
+				C75EA5BA22789E2400459E0A /* FilterExpenseViewController.swift in Sources */,
 				C7F82E78226290E0004DA01B /* ExpenseListViewController.swift in Sources */,
 				B7C2B91B2277879100087A6A /* PieChartSelectionViewController.swift in Sources */,
 				C75EA5B8227736DE00459E0A /* BudgetSelectionViewController.swift in Sources */,

@@ -29,12 +29,15 @@ class BarChartViewController: UIViewController {
     
     func updateBarChartData() {
         let dataEntries = [BarChartDataEntry(x: 0, y: selectedBudget.expenseTotal)]
-        print(selectedBudget.budgetName)
         barChartView.leftAxis.removeAllLimitLines()
-        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: [selectedBudget.budgetName])
+        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["\(selectedBudget.budgetName) budget"])
         let chartDataSet = BarChartDataSet(dataEntries)
         let chartData = BarChartData(dataSet: chartDataSet)
-        chartDataSet.colors = ChartColorTemplates.joyful()
+        if (selectedBudget.expenseTotal > selectedBudget.budgetTotal) {
+            chartDataSet.colors = [CustomColors.red]
+        } else {
+            chartDataSet.colors = [CustomColors.green]
+        }
         chartDataSet.label? = "\(selectedBudget.budgetName) Expense"
         barChartView.data = chartData
         let ll = ChartLimitLine(limit: selectedBudget.budgetTotal, label: "Limit: $\(selectedBudget.budgetTotal)")
