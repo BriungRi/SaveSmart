@@ -227,7 +227,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ebg-f6-1ry"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Budget vs. Expense" id="OFc-Ee-3DD"/>
+                    <navigationItem key="navigationItem" title="Budget vs. Expense" id="OFc-Ee-3DD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="kTi-se-N7f">
+                            <connections>
+                                <segue destination="Loh-GS-emm" kind="presentation" id="Igo-0K-P4X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="pieChartView" destination="DcK-7L-LpS" id="Kix-2T-xqE"/>
                     </connections>
@@ -269,7 +275,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="21Z-Rg-1Ip"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Monthly Expenses" id="g12-1Z-oNF"/>
+                    <navigationItem key="navigationItem" title="Monthly Expenses" id="g12-1Z-oNF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Nte-hI-RKb">
+                            <connections>
+                                <segue destination="NiL-TJ-3qY" kind="presentation" id="ezA-QL-CrZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lineChartView" destination="Bsh-G2-cs1" id="Ief-VS-AYF"/>
                     </connections>
@@ -278,7 +290,7 @@
             </objects>
             <point key="canvasLocation" x="2920.8000000000002" y="1712.2938530734634"/>
         </scene>
-        <!--Budget Per Category-->
+        <!--Expense Per Category-->
         <scene sceneID="moX-as-eQc">
             <objects>
                 <viewController id="22o-A4-9El" customClass="BarChartViewController" customModule="SaveSmart" customModuleProvider="target" sceneMemberID="viewController">
@@ -300,7 +312,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jSq-9w-mET"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Budget Per Category" id="p4z-uo-wau">
+                    <navigationItem key="navigationItem" title="Expense Per Category" id="p4z-uo-wau">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="jkl-en-Uhy">
                             <connections>
                                 <segue destination="4i2-zW-gX2" kind="presentation" id="jF5-PE-zgi"/>
@@ -628,6 +640,142 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="087-WB-SUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1999.2" y="1025.9370314842579"/>
+        </scene>
+        <!--Budget Selection-->
+        <scene sceneID="JCU-Nb-RiJ">
+            <objects>
+                <viewController id="M78-B7-GUF" customClass="PieChartSelectionViewController" customModule="SaveSmart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tFe-Cn-WDp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Bar Chart For:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ji1-od-557">
+                                <rect key="frame" x="110.5" y="117" width="154" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZL-jc-JE0">
+                                <rect key="frame" x="28" y="146" width="319" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XZL-jc-JE0" firstAttribute="centerX" secondItem="Ji1-od-557" secondAttribute="centerX" id="3ad-jJ-TQq"/>
+                            <constraint firstItem="XZL-jc-JE0" firstAttribute="centerX" secondItem="tFe-Cn-WDp" secondAttribute="centerX" id="AVN-ZN-5Lz"/>
+                            <constraint firstItem="Ji1-od-557" firstAttribute="top" secondItem="3hs-cF-0l4" secondAttribute="top" constant="53" id="H5K-aE-4KQ"/>
+                            <constraint firstItem="XZL-jc-JE0" firstAttribute="top" secondItem="Ji1-od-557" secondAttribute="bottom" constant="8" symbolic="YES" id="IB1-bk-AUO"/>
+                            <constraint firstItem="XZL-jc-JE0" firstAttribute="leading" secondItem="3hs-cF-0l4" secondAttribute="leading" constant="28" id="a4p-Nu-Tsz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3hs-cF-0l4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Budget Selection" id="EwS-MZ-Kd1">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="koQ-Wy-8Kc">
+                            <connections>
+                                <action selector="onCancelPress:" destination="M78-B7-GUF" id="qdH-rZ-cgM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="7Po-22-SIB">
+                            <connections>
+                                <action selector="onSavePress:" destination="M78-B7-GUF" id="p0h-sU-tih"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="budgetPickerView" destination="XZL-jc-JE0" id="KoD-Rm-6M2"/>
+                        <segue destination="aLa-k7-jJa" kind="unwind" identifier="unwindToPieChart" unwindAction="unwindToPieChartWithSegue:" id="6Ow-r1-l5f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HeA-H7-vmJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="aLa-k7-jJa" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4809" y="1026"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vV6-Az-hn2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Loh-GS-emm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VYL-jj-0Hd">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="M78-B7-GUF" kind="relationship" relationship="rootViewController" id="LbY-qu-hhg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wvc-rZ-zrt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3870" y="1026"/>
+        </scene>
+        <!--Budget Selection-->
+        <scene sceneID="Lx9-81-sqE">
+            <objects>
+                <viewController id="sQU-Zt-W2T" customClass="LineChartSelectionViewController" customModule="SaveSmart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uEf-5T-7oL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Bar Chart For:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXc-IO-BoE">
+                                <rect key="frame" x="110.5" y="117" width="154" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jw6-0P-FYe">
+                                <rect key="frame" x="28" y="146" width="319" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Jw6-0P-FYe" firstAttribute="leading" secondItem="Mjq-r6-Q3M" secondAttribute="leading" constant="28" id="1DS-iV-gg8"/>
+                            <constraint firstItem="Jw6-0P-FYe" firstAttribute="centerX" secondItem="uEf-5T-7oL" secondAttribute="centerX" id="2fB-YJ-U3r"/>
+                            <constraint firstItem="Jw6-0P-FYe" firstAttribute="centerX" secondItem="mXc-IO-BoE" secondAttribute="centerX" id="9Dd-W1-Ski"/>
+                            <constraint firstItem="mXc-IO-BoE" firstAttribute="top" secondItem="Mjq-r6-Q3M" secondAttribute="top" constant="53" id="NdT-N8-cA4"/>
+                            <constraint firstItem="Jw6-0P-FYe" firstAttribute="top" secondItem="mXc-IO-BoE" secondAttribute="bottom" constant="8" symbolic="YES" id="iIR-YB-cUM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mjq-r6-Q3M"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Budget Selection" id="cQA-X5-4Nq">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0zB-J2-rab">
+                            <connections>
+                                <action selector="onCancelPress:" destination="sQU-Zt-W2T" id="VjS-G2-Zkp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="zbt-VF-TXt">
+                            <connections>
+                                <action selector="onSavePress:" destination="sQU-Zt-W2T" id="lEi-YX-a2T"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="budgetPickerView" destination="Jw6-0P-FYe" id="Bjh-mF-wWJ"/>
+                        <segue destination="liX-Z2-vER" kind="unwind" identifier="unwindToLineChart" unwindAction="unwindToLineChartWithSegue:" id="Vbm-9Z-CFu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HvV-Fi-YKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="liX-Z2-vER" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4809" y="1712"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wWw-Sm-glO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NiL-TJ-3qY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zI5-XV-VSV">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sQU-Zt-W2T" kind="relationship" relationship="rootViewController" id="K14-kS-MwP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SiH-UH-CUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3870" y="1712"/>
         </scene>
     </scenes>
     <resources>

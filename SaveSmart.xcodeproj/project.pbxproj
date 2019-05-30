@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B7C2B91722762DBF00087A6A /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C2B91622762DBF00087A6A /* BarChartViewController.swift */; };
+		B7C2B91B2277879100087A6A /* PieChartSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C2B91A2277879100087A6A /* PieChartSelectionViewController.swift */; };
+		B7C2B91D2277B9C400087A6A /* LineChartSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C2B91C2277B9C400087A6A /* LineChartSelectionViewController.swift */; };
 		B7D2A6DD2267AEAE00DB4D69 /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D2A6DC2267AEAE00DB4D69 /* PieChartViewController.swift */; };
 		B7D2A6DF2267AEBF00DB4D69 /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D2A6DE2267AEBF00DB4D69 /* LineChartViewController.swift */; };
 		C75EA5B8227736DE00459E0A /* BudgetSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75EA5B7227736DE00459E0A /* BudgetSelectionViewController.swift */; };
@@ -29,6 +31,8 @@
 		699508B026AEDC4155406ACF /* Pods-SaveSmart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveSmart.release.xcconfig"; path = "Target Support Files/Pods-SaveSmart/Pods-SaveSmart.release.xcconfig"; sourceTree = "<group>"; };
 		90342A418AECCAE67EF9BBED /* Pods_SaveSmart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaveSmart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C2B91622762DBF00087A6A /* BarChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartViewController.swift; sourceTree = "<group>"; };
+		B7C2B91A2277879100087A6A /* PieChartSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartSelectionViewController.swift; sourceTree = "<group>"; };
+		B7C2B91C2277B9C400087A6A /* LineChartSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartSelectionViewController.swift; sourceTree = "<group>"; };
 		B7D2A6DC2267AEAE00DB4D69 /* PieChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		B7D2A6DE2267AEBF00DB4D69 /* LineChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
 		C75EA5B7227736DE00459E0A /* BudgetSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSelectionViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 				B7D2A6DC2267AEAE00DB4D69 /* PieChartViewController.swift */,
 				B7D2A6DE2267AEBF00DB4D69 /* LineChartViewController.swift */,
 				B7C2B91622762DBF00087A6A /* BarChartViewController.swift */,
+				B7C2B91A2277879100087A6A /* PieChartSelectionViewController.swift */,
+				B7C2B91C2277B9C400087A6A /* LineChartSelectionViewController.swift */,
 			);
 			path = SaveSmart;
 			sourceTree = "<group>";
@@ -240,10 +246,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7F82E7622624B4A004DA01B /* BudgetModel.swift in Sources */,
+				B7C2B91D2277B9C400087A6A /* LineChartSelectionViewController.swift in Sources */,
 				C7F82E66226244D2004DA01B /* SecondViewController.swift in Sources */,
 				C7F82E7C226292F3004DA01B /* NewExpenseViewController.swift in Sources */,
 				C7F82E7A226292E5004DA01B /* NewBudgetViewController.swift in Sources */,
 				C7F82E78226290E0004DA01B /* ExpenseListViewController.swift in Sources */,
+				B7C2B91B2277879100087A6A /* PieChartSelectionViewController.swift in Sources */,
 				C75EA5B8227736DE00459E0A /* BudgetSelectionViewController.swift in Sources */,
 				C7F82E62226244D2004DA01B /* AppDelegate.swift in Sources */,
 				B7D2A6DD2267AEAE00DB4D69 /* PieChartViewController.swift in Sources */,

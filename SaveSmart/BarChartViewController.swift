@@ -29,22 +29,26 @@ class BarChartViewController: UIViewController {
     
     func updateBarChartData() {
         let dataEntries = [BarChartDataEntry(x: 0, y: selectedBudget.expenseTotal)]
-        
+        print(selectedBudget.budgetName)
         barChartView.leftAxis.removeAllLimitLines()
         barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: [selectedBudget.budgetName])
         let chartDataSet = BarChartDataSet(dataEntries)
         let chartData = BarChartData(dataSet: chartDataSet)
         chartDataSet.colors = ChartColorTemplates.joyful()
-        chartDataSet.label? = "\(selectedBudget.budgetName) Budget"
+        chartDataSet.label? = "\(selectedBudget.budgetName) Expense"
         barChartView.data = chartData
         let ll = ChartLimitLine(limit: selectedBudget.budgetTotal, label: "Limit: $\(selectedBudget.budgetTotal)")
         ll.lineColor = NSUIColor.red
         barChartView.leftAxis.addLimitLine(ll)
+        barChartView.fitScreen()
         barChartView.xAxis.granularity = 1
         barChartView.xAxis.granularityEnabled = true
         barChartView.xAxis.labelCount = GlobalData.budgets.count;
         barChartView.leftAxis.axisMinimum = 0
         barChartView.leftAxis.axisMaximum = max(selectedBudget.budgetTotal, selectedBudget.expenseTotal) * 1.1
+        DispatchQueue.main.async(execute: {() -> Void in
+            self.barChartView.animate(xAxisDuration: 1.75, yAxisDuration: 1.75, easingOption: .easeInBack)
+        })
     }
     
     @IBAction func unwindToBarChart(segue:UIStoryboardSegue) {

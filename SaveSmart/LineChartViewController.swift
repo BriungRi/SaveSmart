@@ -12,6 +12,9 @@ import Charts
 class LineChartViewController: UIViewController {
 
     @IBOutlet weak var lineChartView: LineChartView!
+    
+    var selectedBudget = GlobalData.budgets[0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -40,7 +43,6 @@ class LineChartViewController: UIViewController {
     var months = ["Jan", "Feb", "Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"]
     
     func updateLineChartData() {
-        var expenseTot = 0.0
         // entries for array
         var jan = 0.0
         var feb = 0.0
@@ -55,68 +57,58 @@ class LineChartViewController: UIViewController {
         var nov = 0.0
         var dec = 0.0
         var dataEntries: [ChartDataEntry] = []
-        
         // get monthly total expense
+        print(selectedBudget.budgetName)
         for expsData in GlobalData.expenses {
+        if(expsData.belongingBudget?.budgetName == selectedBudget.budgetName) {
             if(expsData.dateCreated.monthAsString() == "Jan" &&
                 expsData.dateCreated.years(from: Date()) == 0) {
-                expenseTot += expsData.expenseAmount
-                jan = expenseTot
+                jan = expsData.expenseAmount
             }
             if(expsData.dateCreated.monthAsString() == "Feb" &&
                 expsData.dateCreated.years(from: Date()) == 0) {
-                expenseTot += expsData.expenseAmount
-                feb = expenseTot
+                feb = expsData.expenseAmount
             }
             if(expsData.dateCreated.monthAsString() == "Mar" &&
                 expsData.dateCreated.years(from: Date()) == 0) {
-                expenseTot += expsData.expenseAmount
-                mar = expenseTot
+                mar = expsData.expenseAmount
             }
             if(expsData.dateCreated.monthAsString() == "Apr" &&
                 expsData.dateCreated.years(from: Date()) == 0) {
-                expenseTot += expsData.expenseAmount
-                apr = expenseTot
+                apr = expsData.expenseAmount
             }
             if(expsData.dateCreated.monthAsString() == "May" &&
                 expsData.dateCreated.years(from: Date()) == 0) {
-                expenseTot += expsData.expenseAmount
-                may = expenseTot
+                may = expsData.expenseAmount
             }
             if(expsData.dateCreated.monthAsString() == "Jun" &&
                 expsData.dateCreated.years(from: Date()) == 0) {
-                expenseTot += expsData.expenseAmount
-                june = expenseTot
+                june = expsData.expenseAmount
             }
             if(expsData.dateCreated.monthAsString() == "Jul" &&
                 expsData.dateCreated.years(from: Date()) == 0) {
-                expenseTot += expsData.expenseAmount
-                july = expenseTot
+                july = expsData.expenseAmount
             }
             if(expsData.dateCreated.monthAsString() == "Aug" &&
                 expsData.dateCreated.years(from: Date()) == 0) {
-                expenseTot += expsData.expenseAmount
-                aug = expenseTot
+                aug = expsData.expenseAmount
             }
             if(expsData.dateCreated.monthAsString() == "Sep" &&
                 expsData.dateCreated.years(from: Date()) == 0) {
-                expenseTot += expsData.expenseAmount
-                sept = expenseTot
+                sept = expsData.expenseAmount
             }
             if(expsData.dateCreated.monthAsString() == "Oct" &&
                 expsData.dateCreated.years(from: Date()) == 0) {
-                expenseTot += expsData.expenseAmount
-                oct = expenseTot
+                oct = expsData.expenseAmount
             }
             if(expsData.dateCreated.monthAsString() == "Nov" &&
                 expsData.dateCreated.years(from: Date()) == 0) {
-                expenseTot += expsData.expenseAmount
-                nov = expenseTot
+                nov = expsData.expenseAmount
             }
             if(expsData.dateCreated.monthAsString() == "Dec" &&
                 expsData.dateCreated.years(from: Date()) == 0) {
-                expenseTot += expsData.expenseAmount
-                dec = expenseTot
+                dec = expsData.expenseAmount
+            }
             }
         }
         
@@ -131,16 +123,28 @@ class LineChartViewController: UIViewController {
         // add x-axis label for months
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         lineChartView.xAxis.granularity = 1
-        let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "Expenses Per Month")
+        let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "Expenses Per Month For \(selectedBudget.budgetName)")
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
         lineChartDataSet.colors = ChartColorTemplates.joyful()
         lineChartDataSet.colors = [NSUIColor.magenta]
         lineChartView.data = lineChartData
         // set axis labels to be visible
+        lineChartView.fitScreen()
         lineChartView.xAxis.granularity = 1
         lineChartView.xAxis.granularityEnabled = true
         lineChartView.xAxis.labelCount = months.count;
-        lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
+        DispatchQueue.main.async(execute: {() -> Void in
+            self.lineChartView.animate(xAxisDuration: 1.75, yAxisDuration: 1.75, easingOption: .easeInOutBack)
+        })
+    }
+    
+    
+    @IBAction func unwindToLineChart(segue:UIStoryboardSegue) {
+        if segue.source is LineChartSelectionViewController{
+            let vc = segue.source as! LineChartSelectionViewController
+            selectedBudget = vc.selectedBudget
+            updateLineChartData()
+        }
     }
 }
 

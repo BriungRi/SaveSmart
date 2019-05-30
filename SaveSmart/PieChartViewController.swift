@@ -12,6 +12,9 @@ import Charts
 class PieChartViewController: UIViewController {
 
     @IBOutlet weak var pieChartView: PieChartView!
+    
+    var selectedBudget = GlobalData.budgets[0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,27 +30,25 @@ class PieChartViewController: UIViewController {
     func updatePieChartData() {
         var budgetTot = 0.0
         var expenseTot = 0.0
+        print(selectedBudget.budgetName)
+        budgetTot = selectedBudget.budgetTotal
         
-        for budget in GlobalData.budgets {
-            budgetTot += budget.budgetTotal
-        }
-        
-        for expense in GlobalData.expenses {
-            expenseTot += expense.expenseAmount
-        }
+        expenseTot += selectedBudget.expenseTotal
         
         let expensesEntry = PieChartDataEntry(value: budgetTot)
         let remainderEntry = PieChartDataEntry(value: max(budgetTot - expenseTot, 0))
         let entries = [expensesEntry, remainderEntry]
         expensesEntry.label = "Expenses"
-        remainderEntry.label = "Remaining Budget"
+        remainderEntry.label = "Budget"
         
         let pieChartDataSet = PieChartDataSet(entries: entries, label: "")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChartDataSet.colors = ChartColorTemplates.joyful()
         pieChartView.data = pieChartData
-        pieChartView.chartDescription?.text = "Total Budget vs. Total Expense"
-        pieChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInElastic)
+        pieChartView.chartDescription?.text = "Remaining Budget vs. Total Expense for \(selectedBudget.budgetName)"
+        DispatchQueue.main.async(execute: {() -> Void in
+            self.pieChartView.animate(xAxisDuration: 1.75, yAxisDuration: 1.75, easingOption: .easeInBack)
+        })
     }
 
     /*
@@ -59,5 +60,14 @@ class PieChartViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindToPieChart(segue:UIStoryboardSegue) {
+        if segue.source is PieChartSelectionViewController{
+            let vc = segue.source as! PieChartSelectionViewController
+            selectedBudget = vc.selectedBudget
+            print(selectedBudget.budgetName)
+            updatePieChartData()
+        }
+    }
 
 }
